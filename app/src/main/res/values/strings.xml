@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Audio Recorder</string>
+    <string name="toast_recording_start">Recording started</string>
+    <string name="toast_recording_saved">Recording Saved</string>
+    <string name="toast_permissions_denied">Permission Denied</string>
+
+    <string name="audioview_recording">recording…</string>
+    <string name="audioview_waiting">waiting…</string>
+
+    <string name="record_elapsed">elapsed:</string>
+    <string name="record_prompt">Tap to start recording</string>
+    <string name="record_in_progress">Recording…</string>
+    <string name="ready">Ready</string>
+    <string name="playback_now">Playback now</string>
+</resources>

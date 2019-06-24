@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.ranjithnaidu.audiorecorder.utils.Utils" />
+
+        <variable
+            name="viewModel"
+            type="com.ranjithnaidu.audiorecorder.record.viewmodel.RecordViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/fragment_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="@string/app_name"
+                android:textSize="24sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:paddingStart="@dimen/expanded_horizontal_margin"
+                android:paddingTop="@dimen/default_horizontal_margin"
+                android:paddingEnd="@dimen/expanded_horizontal_margin"
+                android:paddingBottom="@dimen/default_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/time_remaining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/expanded_vertical_margin"
+                android:background="@drawable/rect_blue"
+                android:gravity="center"
+                android:minWidth="56dp"
+                android:paddingStart="@dimen/expanded_horizontal_margin"
+                android:paddingTop="@dimen/default_horizontal_margin"
+                android:paddingEnd="@dimen/expanded_horizontal_margin"
+                android:paddingBottom="@dimen/default_horizontal_margin"
+                android:text="@string/ready"
+                android:textColor="@color/white"
+                tools:text="Ready" />
+
+            <!-- Audio visualizer -->
+            <com.ranjithnaidu.audiorecorder.utils.AudioLevelView
+                android:id="@+id/audio_view"
+                android:layout_width="match_parent"
+                android:layout_height="156dp"
+                android:layout_marginStart="@dimen/default_horizontal_margin"
+                android:layout_marginTop="@dimen/expanded_vertical_margin"
+                android:layout_marginEnd="@dimen/default_horizontal_margin"
+                android:padding="@dimen/default_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/recording_status_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/expanded_vertical_margin"
+                android:layout_marginBottom="@dimen/expanded_vertical_margin"
+                android:text="@{viewModel.serviceConnected &amp;&amp; viewModel.serviceRecording ? @string/record_in_progress : @string/record_prompt}"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="@string/record_prompt" />
+
+            <ImageView
+                android:id="@+id/btnRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/expanded_vertical_margin"
+                android:layout_marginBottom="@dimen/expanded_vertical_margin"
+                android:enabled="@{viewModel.serviceConnected ? true : false}"
+                android:src="@{viewModel.serviceConnected &amp;&amp; viewModel.serviceRecording ? @drawable/ic_media_stop : @drawable/ic_media_record}" />
+
+            <TextView
+                android:id="@+id/btnPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="@dimen/expanded_vertical_margin"
+                android:background="@drawable/btn_state"
+                android:enabled="@{viewModel.showPlayBack ? true : false}"
+                android:paddingStart="@dimen/expanded_horizontal_margin"
+                android:paddingTop="@dimen/default_horizontal_margin"
+                android:paddingEnd="@dimen/expanded_horizontal_margin"
+                android:paddingBottom="@dimen/default_horizontal_margin"
+                android:text="@string/playback_now"
+                android:textColor="@color/dark_grey" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</layout>

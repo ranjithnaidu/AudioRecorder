@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins. -->
+    <dimen name="default_horizontal_margin">8dp</dimen>
+    <dimen name="expanded_horizontal_margin">16dp</dimen>
+    <dimen name="reduced_horizontal_margin">4dp</dimen>
+    <dimen name="default_vertical_margin">8dp</dimen>
+    <dimen name="expanded_vertical_margin">16dp</dimen>
+    <dimen name="reduced_vertical_margin">4dp</dimen>
+</resources>
